@@ -1,0 +1,4 @@
+id,email,firstName,isAuthenticated,lastName,password,role
+1,admin@gmail.com,Admin,0,Admin,000000,ROLE_ADMIN
+2,avuyile@gmail.com,Oleg,0,Avuyile,234567,ROLE_USER
+3,user@gmail.com,Anton,0,Avuyile,123456,ROLE_USER

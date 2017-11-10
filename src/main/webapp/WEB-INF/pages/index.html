@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta firstName="viewport" content="width=device-width, initial-scale=1.0">
+    <meta firstName="description" content="Event X">
+    <meta firstName="author" content="avuyile">
+    <title> | Event X</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <script src="../../resources/js/jquery-2.1.3.min.js"></script>
+    <script src="../../resources/js/bootstrap.js"></script>
+    <script src="../../resources/js/jquery.easing.min.js"></script>
+    <script src="../../resources/js/jquery.scrollTo.js"></script>
+    <script src="../../resources/js/wow.min.js"></script>
+    <script src="../../resources/js/custom.js"></script>
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<!-- Preloader -->
+<div id="preloader">
+    <div id="load"></div>
+</div>
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="${pageContext.request.contextPath}/resources/img/logo.png" alt="">
+                    </a>
+                    <h2></h2>
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <div class="collapse navbar-collapse navbar-main-collapse">
+
+                <div class="col-md-2 right col-md-offset-2">
+                    <c:choose>
+                        <c:when test="${user.isAuthenticated}">
+                            <p class="mail">${user.email}<i class="setting fa fa-cog"></i></p>
+                            <div id="menu">
+                                <div id="arrow"></div>
+                                <div id="logout">
+                                    <a href="${pageContext.request.contextPath}/user/logout">Log out</a><br>
+                                    <c:if test="${user.role == 'ROLE_ADMIN'}">
+                                        <a href="${pageContext.request.contextPath}/admin0564044">Admin panel</a>
+                                    </c:if>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${pageContext.request.contextPath}/user/auth.html">
+                                <button class="btn btn-danger log-btn">Log in</button>
+                            </a>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+                <div class="col-md-4 right ">
+                    <ul class="list nav navbar-nav ">
+                        <li><a href="${pageContext.request.contextPath}/index.html">Home</a></li>
+                        <li><a href="#">Clients</a></li>
+                        <li><a href="#">Activity</a></li>
+                        <li><a href="#">Timesheets</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">About US</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</nav>
+<!-- Section: intro -->
+<section id="intro" class="intro">
+
+    <div class="slogan">
+        <h2>Event X</h2>
+        <h4>Relax with us</h4>
+    </div>
+    <div class="page-scroll">
+        <a href="${pageContext.request.contextPath}/user/create.html" class="btn btn-circle">
+            <p class="animated">Sign up</p>
+            <i class="fa fa-angle-double-down fa-2x animated"></i>
+        </a>
+    </div>
+</section>
+<!-- /Section: intro -->
+
+
+<!-- Section: services -->
+<section id="service" class="home-section text-center bg-gray">
+    <div class="heading-about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                        <div class="section-heading">
+                            <h3>Today</h3>
+                            <i class="fa fa-2x fa-angle-down"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Section: services -->
+
+<!-- Section: contact -->
+<section id="contact" class="home-section text-center">
+    <div class="heading-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                        <div class="section-heading">
+                            <h2>Get in touch</h2>
+                            <i class="fa fa-2x fa-angle-down"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="boxed-grey">
+                    <form id="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">
+                                        Name</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="Enter firstName" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">
+                                        Email Address</label>
+                                    <div class="input-group">
+													<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+												</span>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">
+                                        Subject</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Enter subject" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">
+                                        Message</label>
+                                    <textarea firstName="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                              placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                                    Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="widget-contact">
+                    <h5>Main Office</h5>
+                    <address>
+                        <strong>MedVed Inc.</strong><br>
+                        Avu, Malotana<br>
+                        <i class="fa fa-skype"> 210088931@mycput.ac.za</i><br>
+                    </address>
+
+                    <address>
+                        <strong>Email</strong><br>
+                        <a href="mailto:#">210088931@mycput.ac.za</a>
+                    </address>
+                    <address>
+                        <strong>We're on social networks</strong><br>
+                        <ul class="company-social">
+                            <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                            <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </address>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- /Section: contact -->
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="wow shake" data-wow-delay="0.4s">
+                    <div class="page-scroll marginbot-30">
+                        <a href="#intro" id="totop" class="btn btn-circle">
+                            <i class="fa fa-angle-double-up animated"></i>
+                        </a>
+                    </div>
+                </div>
+                <p>&copy;Copyright 2017 - Avuyile Malotana. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Core JavaScript Files -->
+</body>
+</html>

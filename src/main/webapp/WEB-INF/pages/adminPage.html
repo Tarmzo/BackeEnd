@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin panel</title>
+    <img src="../../resources/img/favicon.ico"/>
+    <link rel="stylesheet" href="../../resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../../resources/css/admin-style.css">
+
+</head>
+
+
+<body>
+    <div class="about-header">
+        <h1>EventX Admin</h1>
+            <p>Admin panel</p>
+        <div class="link">
+            <a href="${pageContext.request.contextPath}/index">Home</a>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="wrapper">
+            <form:form method="POST" commandName="statistics" action="${pageContext.request.contextPath}/chosenDate">
+                <span>Choose date for analysis</span>
+                <form:select path="date" items="${calendar}"></form:select>
+                <input class="btn btn-warning ok-btn" type="submit" value="OK"/>
+            </form:form>
+        </div>
+    </div>
+
+    <c:if test="${statistics.filled == true}">
+        <table border="1px" cellpadding="0" cellspacing="0" >
+            <thead>
+            <tr>
+                <th width="15%">Profit(UAH)</th><th width="10%">Starts time</th><th width="10%">Activity Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="innerList" items="${statistics.rows}">
+                <tr>
+                    <c:forEach var="cell" items="${innerList}">
+                        <td><c:out value="${cell}"></c:out></td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
+
+    <script src="../../resources/js/bootstrap.js"></script>
+</body>
+</html>
